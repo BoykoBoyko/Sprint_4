@@ -107,9 +107,4 @@ public class MainPage {
         driver.findElement(orderButton).click();
     }
 
-
-
-
-
-
 }

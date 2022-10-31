@@ -49,8 +49,8 @@ public class CheckTextOfQuestions {
 
     @Before
     public void setUp() {
-        // driver = new ChromeDriver();
-        driver = new FirefoxDriver();
+        driver = new ChromeDriver();
+        //driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         MainPage mainPage = new MainPage(driver);
         mainPage.openMainPage();

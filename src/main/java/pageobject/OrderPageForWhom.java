@@ -54,5 +54,4 @@ public class OrderPageForWhom {
         driver.findElement(nextButton).click();
     }
 
-
 }
