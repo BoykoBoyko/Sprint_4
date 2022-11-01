@@ -10,7 +10,7 @@ public class OrderPageAboutRent {
     //поле Когда привезти самокат
     private final By dateField = By.xpath(".//input[contains(@placeholder, 'Когда привезти самокат')]");
     //выбор даты когда привезти самокат из календаря
-    private final By choosingDate = By.xpath(".//div[@aria-label='Choose четверг, 20-е октября 2022 г.']");
+    private final By choosingDate = By.xpath(".//div[contains(@class, 'react-datepicker__day--selected')]");
     //поле с выпадающим списком со скроком аренды самоката
     private final By rentField = By.xpath(".//div[@class='Dropdown-placeholder']");
     //выбор периода аренды из списка
@@ -32,14 +32,15 @@ public class OrderPageAboutRent {
         this.driver = driver;
     }
     //выбор даты
-    public void chooseDate() {
-        driver.findElement(dateField).click();
+    public void chooseDate(String dayWhatIWant) {
+        driver.findElement(dateField).sendKeys(dayWhatIWant);
         driver.findElement(choosingDate).click();
     }
     //выбор срока аренды
     public void chooseRentalPeriod() {
         driver.findElement(rentField).click();
         driver.findElement(choosingRentalPeriod).click();
+
     }
     //выбор чек-бокса с цветом самоката
     public void chooseColor() {

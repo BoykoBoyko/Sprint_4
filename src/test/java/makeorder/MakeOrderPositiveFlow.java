@@ -29,22 +29,24 @@ public class MakeOrderPositiveFlow {
     private static String surname;
     private static String address;
     private static String phoneNumber;
+    private static String dayWhatIWant;
     private static String comment;
 
-    public MakeOrderPositiveFlow(By orderButton, String name, String surname, String address, String phoneNumber, String comment) {
+    public MakeOrderPositiveFlow(By orderButton, String name, String surname, String address, String phoneNumber, String dayWhatIWant, String comment) {
         this.orderButton = orderButton;
         this.name = name;
         this.surname = surname;
         this.address = address;
         this.phoneNumber = phoneNumber;
+        this.dayWhatIWant = dayWhatIWant;
         this.comment = comment;
     }
 
     @Parameterized.Parameters
     public static Object [][] getCredentials(){
         return new Object[][] {
-                {orderButtonTop, "Елена", "Бойко", "Варшавка", "+79169077854", "Я старалась" },
-                {orderButtonMiddle, "Анна Мария", "Ян", "Туман, 666", "3570001112233", ""}
+                {orderButtonTop, "Елена", "Бойко", "Варшавка", "+79169077854", "20.11.2022", "Я старалась" },
+                {orderButtonMiddle, "Анна Мария", "Ян", "Туман, 666", "3570001112233", "17.03.2023", ""}
         };
     }
     @Before
@@ -70,7 +72,7 @@ public class MakeOrderPositiveFlow {
         orderPageForWhom.clickNextButton();
         //раздел Про аренду
         OrderPageAboutRent orderPageAboutRent = new OrderPageAboutRent(driver);
-        orderPageAboutRent.chooseDate();
+        orderPageAboutRent.chooseDate(dayWhatIWant);
         orderPageAboutRent.chooseRentalPeriod();
         orderPageAboutRent.chooseColor();
         orderPageAboutRent.writeComment(comment);
